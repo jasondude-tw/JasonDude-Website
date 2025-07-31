@@ -117,38 +117,32 @@
 
     /* 響應式設計：手機版樣式 */
     @media (max-width: 768px) {
-      .navbar .container {
-        flex-direction: row; 
-        justify-content: space-between; 
-        align-items: center;
-        flex-wrap: wrap; 
-      }
+        .navbar .container {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
 
-      .menu-toggle {
-        display: block; 
-      }
+            /* --- ✨ 關鍵修改在這裡 --- */
+            padding-left: 20px;  /* 保留左邊的內距，讓 Logo 和 main 內容對齊 */
+            padding-right: 0;   /* 取消右邊的內距，讓漢堡按鈕可以靠到最右邊 */
+        }
 
-      .navbar .menu {
-        display: none; /* 現在它不會被劃掉了！ */
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-        margin-top: 10px;
-        background-color: #fff; 
-        border-top: 1px solid #ddd;
-      }
+        .menu-toggle {
+            display: block;
+            /* 為按鈕本身增加一些內距，讓它視覺上平衡且容易點擊 */
+            padding-right: 20px; 
+        }
 
-      .navbar .menu.is-active {
-        display: flex; 
-      }
+        /* ... 您其他的手機版樣式 ... */
+        .navbar .menu {
+            display: none;
+            /* ... */
+        }
 
-      .navbar li .dropdown-menu {
-        position: static; 
-        border: none;
-        box-shadow: none;
-        width: 100%;
-        background-color: #f7f7f7;
-      }
+        .navbar .menu.is-active {
+            display: flex;
+        }
     }
   </style>
 </head>

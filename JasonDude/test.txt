@@ -1,0 +1,9 @@
+# 到你網站資料夾
+cd your-project
+# 啟動一個簡單伺服器（Python 3）
+python -m http.server 8000
+
+打開
+http://localhost:8000/
+
+http://localhost:8000/modules/home.html

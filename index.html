@@ -148,6 +148,30 @@
         .navbar .menu.is-active {
             display: flex;
         }
+
+        /* 1. 在手機上，禁用電腦版的 hover 效果，避免誤觸 */
+        .navbar li:hover > .dropdown-menu {
+            display: none;
+        }
+
+        /* 2. 重新定義子選單在手機上的「外觀」和「定位方式」 */
+        .navbar li .dropdown-menu {
+            position: static;      /* 改回正常文件流，在主選單內展開 */
+            width: 100%;           /* 寬度和父容器一致 */
+            box-shadow: none;      /* 移除陰影 */
+            border: none;          /* 移除邊框 */
+            background-color: #f7f7f7; /* 給個稍微不同的背景色以示區分 */
+            
+            /* 為了美觀，可以加個內縮排 */
+            padding-left: 20px;
+            box-sizing: border-box; /* 確保 padding 不會影響寬度計算 */
+        }
+
+        /* 3. 實作手機版的「點擊展開」邏輯 */
+        .navbar li.dropdown.open > .dropdown-menu {
+            display: block; /* 只有當父層 li 有 .open class 時才顯示 */
+        }
+
     }
   </style>
 </head>

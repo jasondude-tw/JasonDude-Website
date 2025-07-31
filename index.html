@@ -7,9 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" href="images/jason-32.png" type="image/png">
   <style>
-/*    * {
+    * {
       outline: 1px solid red !important;
-    }*/
+    }
 
     /* --- CSS 檔案最頂部 --- */
     /* (建議所有專案都從這段開始) */
@@ -33,7 +33,7 @@
       width: 100%;          /* 保證寬度不超過螢幕 */
     }
     .navbar {
-      position: sticky;
+      position: relative;
       background: #fff;
       top: 0;
       z-index: 999;
@@ -53,7 +53,7 @@
       margin-right: 40px;
     }
     .navbar ul {
-      list-style: none; margin: 0; padding: 0; display: flex;
+      list-style: none; margin: 0; padding: 0; display: flex; 
     }
     .navbar li {
       position: relative; margin-right: 20px;
@@ -68,7 +68,7 @@
       cursor: pointer;
     }
     .navbar li .dropdown-menu {
-      display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #ccc; min-width: 180px; z-index: 1000;
+      display: none; position: absolute; top: 100%; left: 0; right: 0; width: auto; background: #fff; border: 1px solid #ccc; min-width: 180px; z-index: 1000;
     }
     .navbar li:hover .dropdown-menu {
       display: block;
@@ -85,7 +85,7 @@
       margin: 0;
     }
     .navbar .dropdown-menu a {
-      padding: 8px 12px; white-space: nowrap;
+      display: block; width: 100%; padding: 8px 12px; white-space: nowrap;
     }
     .navbar .dropdown-menu a:hover {
       background: #eee;

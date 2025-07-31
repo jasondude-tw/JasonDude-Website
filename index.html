@@ -86,11 +86,21 @@
     }
     /* 漢堡選單按鈕樣式 */
     .menu-toggle {
-      display: none; /* 電腦版預設隱藏 */
-      background: none;
-      border: none;
-      font-size: 24px;
+      /* 1. ✨ 關鍵重置：移除瀏覽器預設外觀 */
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent; /* 移除預設背景 */
+      border: none;          /* 移除預設邊框 */
+      
+      /* 2. 設定我們自己的顏色和樣式 */
+      color: #333;      /* ✨ 設定成和其他導覽列文字一樣的深灰色 */
       cursor: pointer;
+      padding: 0;        /* 清除預設內距 */
+      margin: 0;         /* 清除預設外距 */
+      font-size: 24px;   /* 您可以自己調整圖示大小 */
+      
+      /* 3. 在電腦版預設隱藏 (這行原本就有) */
+      display: none;
     }
 
         /* 中層圖片 */
@@ -243,7 +253,7 @@
     <img src="images/hero1.jpg" alt="大圖展示" />
   </div>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <div class="container" id="content">
       <!-- 內容動態載入 -->
     </div>

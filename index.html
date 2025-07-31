@@ -79,6 +79,14 @@
       margin: 0;
       padding: 0;
     }
+    /* 漢堡選單按鈕樣式 */
+    .menu-toggle {
+      display: none; /* 電腦版預設隱藏 */
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
 
         /* 中層圖片 */
     .full-width-banner {
@@ -107,27 +115,54 @@
       line-height: 1.6;
     }
 
-    /* 響應式 */
+    /* 響應式設計：手機版樣式 */
     @media (max-width: 768px) {
       .navbar .container {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row; /* 改回 row，讓 Logo 和漢堡按鈕在同一行 */
+        justify-content: space-between; /* 讓 Logo 和漢堡按鈕分開 */
+        align-items: center;
+        flex-wrap: wrap; /* 允許換行，當選單展開時會用到 */
+      }
+
+      .menu-toggle {
+        display: block; /* 手機版顯示漢堡按鈕 */
       }
 
       .menu {
+        display: none; /* 手機版預設隱藏整個主選單 */
         flex-direction: column;
         width: 100%;
         gap: 10px;
         margin-top: 10px;
+        background-color: #fff; /* 為展開的選單加上背景色 */
+        border-top: 1px solid #ddd;
+      }
+
+      /* 當選單被 JavaScript 打開時，套用此樣式 */
+      .menu.is-active {
+        display: flex; 
+      }
+
+      .navbar li .dropdown-menu {
+        position: static; /* 在手機上，子選單不再是絕對定位 */
+        border: none;
+        box-shadow: none;
+        width: 100%;
+        background-color: #f7f7f7; /* 給子選單一個稍微不同的背景色 */
       }
     }
   </style>
 </head>
+
 <body>
   <nav class="navbar">
     <div class="container">
       <div class="logo">Jason's Life Lab</div>
-      <ul class="menu">
+      <!-- 新增的漢堡選單按鈕 -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+        ☰ <!-- 這是漢堡圖示的 HTML 實體 -->
+      </button>
+      <ul class="menu" id="main-menu">
         <li><a href="#" data-module="bio">BIO</a></li>
         <li class="dropdown">
           <a href="#">News & Albums ⏷</a>

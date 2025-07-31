@@ -1,39 +1,57 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 檢查是否為觸控裝置
-  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  const menuToggle = document.getElementById('menu-toggle');
+  const mainMenu = document.getElementById('main-menu');
+  
+  // --- 主選單（漢堡選單）的開關邏輯 ---
+  if (menuToggle && mainMenu) {
+    menuToggle.addEventListener('click', () => {
+      // 切換 .is-active class 來顯示或隱藏主選單
+      mainMenu.classList.toggle('is-active');
+    });
+  }
 
+  // --- 子選單（下拉選單）的觸控邏輯 ---
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   if (isTouchDevice) {
     document.querySelectorAll('.navbar .dropdown > a').forEach(dropdownToggle => {
       dropdownToggle.addEventListener('click', function (e) {
-        e.preventDefault(); // 阻止連結的預設行為
+        // 只有當主選單可見時（即手機版狀態下）才阻止預設行為
+        if (mainMenu.classList.contains('is-active')) {
+            e.preventDefault();
+        }
 
         const parentLi = this.parentElement;
         const wasOpen = parentLi.classList.contains('open');
 
-        // 步驟 1：先關閉所有其他的下拉選單
+        // 先關閉所有其他的下拉選單
         document.querySelectorAll('.navbar .dropdown.open').forEach(openLi => {
           if (openLi !== parentLi) {
             openLi.classList.remove('open');
           }
         });
 
-        // 步驟 2：切換當前點擊的選單狀態
-        if (wasOpen) {
-          parentLi.classList.remove('open'); // 如果已經是開啟的，就關閉它
+        // 切換當前點擊的選單狀態
+        if (!wasOpen) {
+          parentLi.classList.add('open');
         } else {
-          parentLi.classList.add('open'); // 如果是關閉的，就開啟它
+          parentLi.classList.remove('open');
         }
       });
     });
-
-    // 點擊頁面其他地方時，關閉所有開啟的選單
-    document.addEventListener('click', function (e) {
-      // 確保點擊的目標不是在 navbar 內部
-      if (!e.target.closest('.navbar')) {
-        document.querySelectorAll('.navbar .dropdown.open').forEach(li => {
-          li.classList.remove('open');
-        });
-      }
-    });
   }
+  
+  // --- 點擊 navbar 外部時，收合所有選單 ---
+  document.addEventListener('click', function (e) {
+    // 如果點擊的目標不是 navbar 內部，也不是漢堡按鈕
+    if (!e.target.closest('.navbar')) {
+      // 關閉主選單
+      if (mainMenu.classList.contains('is-active')) {
+        mainMenu.classList.remove('is-active');
+      }
+      // 關閉所有子選單
+      document.querySelectorAll('.navbar .dropdown.open').forEach(li => {
+        li.classList.remove('open');
+      });
+    }
+  });
 });

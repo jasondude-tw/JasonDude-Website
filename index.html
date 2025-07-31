@@ -141,8 +141,16 @@
 
         /* ... 您其他的手機版樣式 ... */
         .navbar .menu {
-            display: none;
-            /* ... */
+            display: none;                 /* 預設隱藏，由 is-active 控制 */
+            flex-direction: column;        /* ✨ 就是這一行！指定垂直排列 */
+            width: 100%;                   /* 佔滿整個導覽列寬度 */
+            background-color: #fff;        /* 給它一個背景色 */
+            border-top: 1px solid #ddd;    /* 和上方內容做個分隔 */
+            
+            /* 以下是可選的美化，建議加上 */
+            gap: 0;                        /* 取消項目間距，改用 padding 控制 */
+            margin-top: 10px;              /* 和 Logo/漢堡按鈕拉開一點距離 */
+            padding: 0;                    /* 清除 ul 預設的 padding */
         }
 
         .navbar .menu.is-active {

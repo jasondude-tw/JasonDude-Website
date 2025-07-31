@@ -118,37 +118,36 @@
     /* 響應式設計：手機版樣式 */
     @media (max-width: 768px) {
       .navbar .container {
-        flex-direction: row; /* 改回 row，讓 Logo 和漢堡按鈕在同一行 */
-        justify-content: space-between; /* 讓 Logo 和漢堡按鈕分開 */
+        flex-direction: row; 
+        justify-content: space-between; 
         align-items: center;
-        flex-wrap: wrap; /* 允許換行，當選單展開時會用到 */
+        flex-wrap: wrap; 
       }
 
       .menu-toggle {
-        display: block; /* 手機版顯示漢堡按鈕 */
+        display: block; 
       }
 
-      .menu {
-        display: none; /* 手機版預設隱藏整個主選單 */
+      .navbar .menu {
+        display: none; /* 現在它不會被劃掉了！ */
         flex-direction: column;
         width: 100%;
         gap: 10px;
         margin-top: 10px;
-        background-color: #fff; /* 為展開的選單加上背景色 */
+        background-color: #fff; 
         border-top: 1px solid #ddd;
       }
 
-      /* 當選單被 JavaScript 打開時，套用此樣式 */
-      .menu.is-active {
+      .navbar .menu.is-active {
         display: flex; 
       }
 
       .navbar li .dropdown-menu {
-        position: static; /* 在手機上，子選單不再是絕對定位 */
+        position: static; 
         border: none;
         box-shadow: none;
         width: 100%;
-        background-color: #f7f7f7; /* 給子選單一個稍微不同的背景色 */
+        background-color: #f7f7f7;
       }
     }
   </style>

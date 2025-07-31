@@ -26,7 +26,7 @@ window.addEventListener("DOMContentLoaded", () => {
       if (moduleName) loadModule(moduleName);
     });
   });
-
+});
 
 
 //手機裝置時啟用點擊 toggle

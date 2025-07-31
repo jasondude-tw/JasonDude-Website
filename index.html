@@ -180,6 +180,22 @@
             display: block; /* 只有當父層 li 有 .open class 時才顯示 */
         }
 
+        .navbar .menu li {
+        width: 100%; /* 讓每個列表項都佔滿整行 */
+        margin-right: 0; /* 清除電腦版設定的右邊距 */
+        }
+        
+        .navbar .menu li a {
+            display: block;  /* 讓整個按鈕區域都可以點擊，而不只是文字 */
+            padding: 12px 20px; /* 增加上下內距，讓按鈕變大更好按 */
+            border-bottom: 1px solid #f0f0f0; /* 為每個項目加上底線分隔 */
+        }
+
+        .navbar .menu li:last-child a {
+            border-bottom: none; /* 最後一個項目不用底線 */
+        }
+    }
+
     }
   </style>
 </head>

@@ -6,7 +6,7 @@
   <title>Investor Relations – Hims & Hers</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" href="images/jason-32.png" type="image/png">
-  <style>
+   <style>
     body {
       font-family: sans-serif;
       margin: 0;
@@ -39,16 +39,39 @@
       /*font-weight: bold;*/
       margin-right: 40px;
     }
-    .navbar ul { list-style: none; margin: 0; padding: 0; display: flex; }
-    .navbar li { position: relative; margin-right: 20px; }
-    .navbar a { text-decoration: none; color: #333; padding: 8px 12px; display: inline-block; }
-    .navbar li:hover > a { background: #f0f0f0; }
-    .navbar .dropdown { cursor: pointer; }
-    .navbar li .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #ccc; min-width: 180px; z-index: 1000; }
-    .navbar li:hover .dropdown-menu { display: block; }
-    .navbar .dropdown-menu li { margin: 0; }
-    .navbar .dropdown-menu a { padding: 8px 12px; white-space: nowrap; }
-    .navbar .dropdown-menu a:hover { background: #eee; }
+    .navbar ul {
+      list-style: none; margin: 0; padding: 0; display: flex;
+    }
+    .navbar li {
+      position: relative; margin-right: 20px;
+    }
+    .navbar a {
+      text-decoration: none; color: #333; padding: 8px 12px; display: inline-block;
+    }
+    .navbar li:hover > a {
+      background: #f0f0f0;
+    }
+    .navbar .dropdown {
+      cursor: pointer;
+    }
+    .navbar li .dropdown-menu {
+      display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #ccc; min-width: 180px; z-index: 1000;
+    }
+    .navbar li:hover .dropdown-menu {
+      display: block;
+    }
+    .navbar li.open > .dropdown-menu {
+      display: block !important;
+    }
+    .navbar .dropdown-menu li {
+      margin: 0;
+    }
+    .navbar .dropdown-menu a {
+      padding: 8px 12px; white-space: nowrap;
+    }
+    .navbar .dropdown-menu a:hover {
+      background: #eee;
+    }
     .menu {
       display: flex;
       gap: 20px;  /* 項目間距 */
@@ -105,30 +128,30 @@
     <div class="container">
       <div class="logo">Jason's Life Lab</div>
       <ul class="menu">
-        <li><a href="#">BIO</a></li>
+        <li><a href="#" data-module="bio">BIO</a></li>
         <li class="dropdown">
           <a href="#">News & Albums ⏷</a>
           <ul class="dropdown-menu">
-            <li><a href="#">News</a></li>
-            <li><a href="#">Events & Presentations</a></li>
-            <li><a href="#">Album1</a></li>
-            <li><a href="#">Album2</a></li>
+            <li><a href="#" data-module="news">News</a></li>
+            <li><a href="#" data-module="events">Events & Presentations</a></li>
+            <li><a href="#" data-module="album1">Album1</a></li>
+            <li><a href="#" data-module="album2">Album2</a></li>
           </ul>
         </li>
         <!-- <li><a href="#">Projects ⏷</a></li> -->
         <li class="dropdown">
           <a href="#">Projects ⏷</a>
           <ul class="dropdown-menu">
-            <li><a href="#">Project1</a></li>
-            <li><a href="#">Project2</a></li>
-            <li><a href="#">Project3</a></li>
+            <li><a href="#" data-module="project1">Project1</a></li>
+            <li><a href="#" data-module="project2">Project2</a></li>
+            <li><a href="#" data-module="project3">Project3</a></li>
           </ul>
         <!-- <li><a href="#">Contact</a></li> -->
         <li class="dropdown">
           <a href="#">Contact</a>
           <ul class="dropdown-menu">
-            <li><a href="#">Mail Address</a></li>
-            <li><a href="#">Instagram</a></li>
+            <li><a href="#" data-module="contact">Mail Address</a></li>
+            <li><a href="#" data-module="contact">Instagram</a></li>
             <li><a href="https://cn.pornhub.com/model/jasonhousework" target="_blank" rel="noopener">PornHub</a></li>
           </ul>
       </ul>
@@ -140,12 +163,11 @@
   </div>
 
   <main>
-   <div class="container">
-      <h1>歡迎來到我的網站</h1>
-      <p>
-        主內容區
-      </p>
+    <div class="container" id="content">
+      <!-- 內容動態載入 -->
     </div>
   </main>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
